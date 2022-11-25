@@ -25,6 +25,7 @@ jobs:
         run: |
           mkdir dist
           python make_wheels.py
+          for ii in dist/*.whl; do auditwheel repair $ii; done
       - name: Show built files
         run: |
             ls -l dist/*
